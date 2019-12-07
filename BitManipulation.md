@@ -1,6 +1,8 @@
 
 # Bit Manipulation
 
+## Bit Operators
+
 * & (bitwise and)
 
 * | (bitwise or)
