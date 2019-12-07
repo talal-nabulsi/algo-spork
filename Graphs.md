@@ -25,7 +25,6 @@ void dfs(Node v) {
     //vist and process vertex
 
     for (neighbors : node.getNeighbrs()) {
-        if (!visited.contains(node)) 
             dfs(neighbor); 
     }
 }
@@ -38,25 +37,22 @@ void dfs(Node v) {
   
 // DFS Nonrecusrive traversal
 
-void DFS(Vertex v) {
+void DFS(Node node) {
 
     Stack<> s = new Stack<>();
     Set<> visited = new HashSet<>();
-    s.push(v) 
+    s.push(node) 
 
     while (!s.empty()) {
         curr = s.pop() // pop from stack
+        if (visited.contains(curr)) continue;
         
-        if (!visited.contains(curr)) {
+        // process vertex
+        visited.add(curr) // add to visited set
             
-            visited.add(curr) // add to visited set
-            // process vertex
-            for (neighbor : v.getNeighbrs()) {
-                if (!visited.contains(v)) 
-                    s.push(neighbor);
-                
-            }
-        }
+        for (neighbor : getNeighbrs(Node)) 
+            s.push(neighbor);         
+         
     }
 }
 
@@ -177,6 +173,17 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
 
 ```java
 
+public void detectCycle(Graph g) {
+
+    for (Node node : g.getVertices) {
+    }
+}
+
+public boolean detectCycleDfs(Node node, Set<Node> visited, Node parent) {
+
+
+
+}
 
 
 
