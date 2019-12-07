@@ -126,6 +126,63 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
 ```
 
 
+# Detect Cycle in Graph
+
+
+## Detect Cycle (Union Find Method)
+
+1. Iterate through edges
+2. Union each pair of vertices in each edge
+3. If any two vertices in an edge belong same set, we have a cycle
+
+```java
+     public boolean hasCycle(int n, int[][] edges) {
+        
+        // Great Union find example
+        int[] parent = new int[n];
+        Arrays.fill(parent, -1);
+        
+        for (int[] edge : edges){
+            int a = find(edge[0], parent);
+            int b = find(edge[1], parent);
+            if (a == b) return true;
+            union(a, b, parent);
+        }
+        
+        return false;   
+    }
+    
+    public int find(int i, int[] parent) {
+        if (parent[i] <  0) return i;
+        parent[i] = find(parent[i], parent);
+        return parent[i];  
+        
+    }
+    
+    // Optimization = weighted union find
+    public void union(int a, int b, int[] parent){
+        if (parent[a] < parent[b]) {
+            parent[a] += parent[b];
+            parent[b] = a;
+        } else {
+            parent[b] += parent[a];
+            parent[a] = b;
+        }  
+    }
+    
+```
+
+## Detect Cycle (DFS Undirected Graph)
+
+
+```java
+
+
+
+
+```
+
+
 # Kruskal's Algorithm
 
 
