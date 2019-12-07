@@ -90,20 +90,23 @@ public void bfs(Node v) {
 
 # Topological Sort
 
-Only applies to directed graphs
+\* *Note: here nodes are represented as ints rather than a node class)*
+
+\* *Note: Topological Sort only applies to directed graphs)*
+
+
+## Topological Sort (Reverse PostOrder Method)
 
 ```java
 
-// Reverse Postorder method
 public List<Integer> topologicalSort(Graph G) {
 
     stack = new Stack<Integer>();
     visited = new HashSet<Integer>;
     ArrayList<Integer> res = new ArrayList
 
-    for (int v = 0; i < G.V(); v++) {
-        if (!visited.contains(v)) topologicalSort(node, stack, visited)}
-    }
+    for (int node : G.getNodes()) 
+        if (!visited.contains(v)) topologicalSort(node, stack, visited)
     
     while (!stack.isEmtpy()) 
       res.add(stack.pop());
@@ -116,10 +119,12 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
         if(!visited.contains(node)) {topologicalSortUtil(node, stack, visited);}
     
     stack.push(v, stack, visited);
-
 }
 
 ```
+
+## Topological Sort (Kahns Algorithm)
+
 
 
 # Detect Cycle in Graph
@@ -174,19 +179,28 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
 ```java
 
 public void detectCycle(Graph g) {
+    Set<Node> visited = new HashSet<>();
 
     for (Node node : g.getVertices) {
+        if (visited.contains(node)) continue;
+        if (detectCycleDfs(node, visited, null))
+            return true;
     }
 }
 
 public boolean detectCycleDfs(Node node, Set<Node> visited, Node parent) {
-
-
-
+    if (visited) return true;
+    visited.add(node);
+    for (Node neighbor : node.getNeighbors) {
+        // Only search nodes that aren't parent
+        if (neighbor != parent) {
+            if (detectCycleDfs(neighbor, visited, node)) 
+                return true;
+        }
+    }
+    
+    return false;
 }
-
-
-
 ```
 
 
