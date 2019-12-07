@@ -7,10 +7,10 @@
 
 * ~ (bitwise compliment)
 
-* << (left shift)
+* \<< (left shift)
 
-* >> (right shift)
+* \>> (right shift)
 
-* >>> (zero fill right shift)
+* \>>> (zero fill right shift)
 
 
