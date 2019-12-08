@@ -69,5 +69,5 @@ int toggleBit(int num, int i) {
 ```java
 
 int clearRightMostBit(int n) {
- return n & (n - 1);
+   return n & (n - 1);
 }
