@@ -64,4 +64,10 @@ int toggleBit(int num, int i) {
 }
 ```
 
+### Turn off Rightmost bit
 
+```java
+
+int clearRightMostBit(int n) {
+ return n & (n - 1);
+}
