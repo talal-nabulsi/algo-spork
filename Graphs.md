@@ -206,6 +206,51 @@ public boolean detectCycleDfs(Node node, Set<Node> visited, Node parent) {
 
 # Kruskal's Algorithm
 
+Algorithm:
+1. Sort Edges by lowest weight
+2. Create Disjoint Set and call findSet on each pair of vertices
+3. If in different sets, add the edge to the result, else continue
 
+```java
+     public List<Edge> kruskals(Graph G) {
+       
+        List<Edge> edges = G.getEdges();
+        edges.sort((a,b) -> a.weight - b.weight)
+        List<Edge> res = new ArrayList<>();
+     
+        // Great Union find example
+        int[] parent = new int[G.size()];
+        Arrays.fill(parent, -1);
+        
+        for (int[] edge : edges){
+            int a = find(edge[0], parent);
+            int b = find(edge[1], parent);
+            if (a == b) continue;
+            union(a, b, parent);
+            res.add(edge)
+        }
+        
+        return res;   
+    }
+    
+    public int find(int i, int[] parent) {
+        if (parent[i] <  0) return i;
+        parent[i] = find(parent[i], parent);
+        return parent[i];  
+        
+    }
+    
+    // Optimization = weighted union find
+    public void union(int a, int b, int[] parent){
+        if (parent[a] < parent[b]) {
+            parent[a] += parent[b];
+            parent[b] = a;
+        } else {
+            parent[b] += parent[a];
+            parent[a] = b;
+        }  
+    }
+    
+```
 
 # Djistrak's Algorithm
