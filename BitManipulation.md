@@ -19,14 +19,19 @@
 
 ### Get Bit
 ```java
-public int getBit(int num, int position) {
-   return (num >>> position) & 1;
+public int getBit(int num, int i) {
+   return (num >>> i) & 1;
+}
+
+boolean getBit(int num, int i) {
+   return ((num & (1 << i)) != 0)
 }
 ```
 
 ### Set Bit
 ```java
-public int setBit(int num, int position) {
-   return (1 << position) & num;
+public int setBit(int num, int i) {
+   return (1 << i) | num;
 }
+
 ```
