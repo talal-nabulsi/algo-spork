@@ -6,6 +6,7 @@
 * Adjacency List 
 * Adjacency Matrix
 
+## Time Complexity of DFS/BFS
 
 * DFS/BFS Time Complexity = **O(V + |E|)**, 
 * For an undirected graph, the runtime is calculated as **O(V + 2|E|)**
@@ -90,9 +91,9 @@ public void bfs(Node v) {
 
 # Topological Sort
 
-\* *Note: here nodes are represented as ints rather than a node class)*
+*Note: here nodes are represented as ints rather than a node class)*
 
-\* *Note: Topological Sort only applies to directed graphs)*
+*Note: Topological Sort only applies to directed graphs)*
 
 
 ## Topological Sort (Reverse PostOrder Method)
@@ -128,7 +129,6 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
 
 
 # Detect Cycle in Graph
-
 
 ## Detect Cycle (Union Find Method)
 
