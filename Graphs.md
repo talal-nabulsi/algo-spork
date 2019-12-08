@@ -206,7 +206,10 @@ public boolean detectCycleDfs(Node node, Set<Node> visited, Node parent) {
 
 # Kruskal's Algorithm
 
+Used to find Minimum Spanning Tree of a graph
+
 Algorithm:
+
 1. Sort Edges by lowest weight
 2. Create Disjoint Set and call findSet on each pair of vertices
 3. If in different sets, add the edge to the result, else continue
