@@ -1,3 +1,6 @@
+
+#Trie (HashMap implementation)
+
 ```java
 public class Trie {
     
