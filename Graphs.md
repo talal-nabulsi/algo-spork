@@ -256,4 +256,72 @@ Algorithm:
     
 ```
 
-# Djistrak's Algorithm
+# Dijkstra's Algorithm
+
+
+Algorithm:
+First create 3 data structures:
+
+distance[v], init all distances to Integer.MAX_VALUE
+parent[v]
+priorityQueue<Node> (a, b) - > dist[a] - dist[b]
+
+Let distance of source vertex from start = 0
+Let distance of al other vertices from start = infinity
+
+	1. Pop the next unvisited vertex from the shortest known distance from start
+	2. Add popped vertex to visited, because it's impossible to find a shorter distance
+	3. For current/popped vertex, calculate distnace of all the neighbors
+		a. Neighbor's distance = current vertex distanced + edge weight
+		b. If this distance < current disntace in array, update the distance (remove/add from queue, And set current vertex as            parent.
+ 
+ ```java
+       
+public List<Integer> dijkstras(Graph G, int source) {
+
+    Map<Integer, List<Edge>> adj = G.getAdjacencyList();
+
+    int[] dist = new int[G.size()];
+    int[] parent = new int[G.size()];
+    Arrays.fill(dist, Integer.MAX_VALUE);
+    Arrays.fill(parent, -1);
+    PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> dist[a]- dist[b])
+    
+    // Visited Set not necessary, just for reference
+    Set<Integer> visited = new HashSet<>();
+
+    while (!pq.isEmpty() {
+
+        int curr = pq.poll();
+
+        for (Edge e: adj.get(curr)) {
+            int target = e.target;
+            int weight - e.weight;
+            int dist = dist[curr] + weight;
+
+            if (dist < dist[target]) {
+                dist[target] = dist
+                //Remove and re-add to pq
+                pq.remove(target);
+                pq.add(target);
+                parent[target] = curr;
+            }
+        }
+    }
+
+}
+
+
+List<Integer> getPath(int[] parent, int target) {
+    List<Integer> path = new ArrayList<>();
+    while (parent[target] != -1) {
+        path.add(target);
+        target = parent[target];
+    }
+    path.add(target);
+    Collections.reverse(path);
+    return path;
+}
+    
+```
+
