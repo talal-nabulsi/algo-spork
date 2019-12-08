@@ -36,3 +36,32 @@ public int setBit(int num, int i) {
 }
 
 ```
+
+### Clear bit
+
+```java
+int clearBit(int num, int i) {
+   int mask = ~(1 << i); // 11111101111111
+   return num & mask;
+}
+```
+
+### Clear bits (MSB through i)
+
+```java
+int clearBitsMSBthroughI(int num, int i) {
+   int mask = (1 << i) - 1; // Subtracting 1 turns 0000010000 into 0000001111
+   return num & mask;
+}
+```
+
+### Toggle Bit (XOR ^)
+
+```java
+int toggleBit(int num, int i) {
+   int mask = 1 << i;
+   return num ^ mask;
+}
+```
+
+
