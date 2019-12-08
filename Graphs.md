@@ -275,9 +275,10 @@ Let distance of al other vertices from start = infinity
 		a. Neighbor's distance = current vertex distanced + edge weight
 		b. If this distance < current disntace in array, update the distance (remove/add from queue, And set current vertex as            parent.
  
+ 
  ```java
        
-public List<Integer> dijkstras(Graph G, int source) {
+public void dijkstras(Graph G, int source) {
 
     Map<Integer, List<Edge>> adj = G.getAdjacencyList();
 
@@ -307,10 +308,8 @@ public List<Integer> dijkstras(Graph G, int source) {
                 parent[target] = curr;
             }
         }
-    }
-
+    }  
 }
-
 
 List<Integer> getPath(int[] parent, int target) {
     List<Integer> path = new ArrayList<>();
