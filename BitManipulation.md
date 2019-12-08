@@ -23,15 +23,16 @@ public int getBit(int num, int i) {
    return (num >>> i) & 1;
 }
 
-boolean getBit(int num, int i) {
-   return ((num & (1 << i)) != 0)
+// OR shift the bit mask 
+int getBit(int num, int i) {
+   return ((num & (1 << i)) != 0) ? 1 : 0
 }
 ```
 
 ### Set Bit
 ```java
 public int setBit(int num, int i) {
-   return (1 << i) | num;
+   return  num | (1 << i);
 }
 
 ```
