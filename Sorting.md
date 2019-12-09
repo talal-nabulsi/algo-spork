@@ -80,7 +80,8 @@ void swap(int a, int b, int[] nums) {
 
 
 ## Counting Sort / Radix Sort
-
+      
+      Used to sort numbers within a specific range
       Runtime: O(n + k)
 
 ### Counting Sort for chars
@@ -159,4 +160,26 @@ static void countSort(int[] arr)  {
 
 ## Bucket Sort
 
+      Algorithm:
+      Set up an array of initially empty "buckets".
+      Scatter: Go over the original array, putting each object in its bucket.
+      Sort each non-empty bucket.
+      Gather: Visit the buckets in order and put all elements back into the original array.
+      
+      Time Complexity: Assuming N^2 sorting algorithm and uniformlly distriubted data : O(n), see wikipedia for proof,
+      Worst case = O(N^2), all data is distributed into one bucket
+      
+
+```java
+
+function bucketSort(array, k) is
+  buckets ← new array of k empty lists
+  M ← the maximum key value in the array
+  for i = 1 to length(array) do
+    insert array[i] into buckets[floor(k * array[i] / M)]
+  for i = 1 to k do
+    nextSort(buckets[i])
+  return the concatenation of buckets[1], ...., buckets[k]
+
+```
 
