@@ -74,21 +74,20 @@ void swap(int a, int b, int[] nums) {
 }
 ```
 
-
-
-
-
 ## QuickSelect
 
 
+
+
 ## Counting Sort / Radix Sort
+
+      Runtime: O(n + k)
 
 ### Counting Sort for chars
 
 ```java
 
- void sort(char arr[]) 
-    { 
+ void sort(char arr[]) { 
         int n = arr.length; 
   
         // The output character array that will have sorted arr 
@@ -110,11 +109,11 @@ void swap(int a, int b, int[] nums) {
             count[i] += count[i-1]; 
   
         // Build the output character array 
+        // Iterate BACKWARDS on original array, updating position-- in count each time 
         // To make it stable we are operating in reverse order. 
-        for (int i = n-1; i>=0; i--) 
-        { 
+        for (int i = n-1; i>=0; i--) { 
             output[count[arr[i]]-1] = arr[i]; 
-            --count[arr[i]]; 
+            count[arr[i]]--; 
         } 
   
         // Copy the output array to arr, so that arr now 
@@ -147,15 +146,15 @@ static void countSort(int[] arr)  {
         } 
   
         for (int i = 0; i < arr.length; i++) 
-            arr[i] = output[i]; 
-        
+            arr[i] = output[i];   
     } 
 
 ```
 
 ### Radix Sort
 
-* Just like counting sort but for each digit, starting with least significant digit
+      Just like counting sort but for each digit, starting with least significant digit
+      Run time = O(d(n + b)), where d = digits, b = base
 
 
 ## Bucket Sort
