@@ -76,8 +76,46 @@ void swap(int a, int b, int[] nums) {
 
 ## QuickSelect
 
+```java
 
+    public int findKthLargest(int[] nums, int k) {
+        return quickSelect(nums, k, 0, nums.length - 1);
+    }
+   
+    public int quickSelect(int[] nums, int k, int low, int high) {
+        int pIndex = partition(nums,low, high);
+         
+        if (k -1 == pIndex) {
+            return nums[k-1];
+        } else if (k -1 < pIndex) {
+            return quickSelect(nums, k, low, pIndex - 1);
+        } else {
+            return quickSelect(nums, k, pIndex + 1, high);
+        }   
+    }
+    
+    public int partition(int[] nums, int low, int high) {
+        int pivot = nums[high];
+        int pIndex = low;
+        
+        for (int i = low; i < high; i++) {
+            if (nums[i] > pivot) {
+                swap(nums, i, pIndex);
+                pIndex++;
+            } 
+        }
+        
+        swap(nums, pIndex, high);
+        return pIndex; 
+    }
+    
+    public void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;   
+    }
 
+```
 
 ## Counting Sort / Radix Sort
       
@@ -157,7 +195,6 @@ static void countSort(int[] arr)  {
       Just like counting sort but for each digit, starting with least significant digit
       Run time = O(d(n + b)), where d = digits, b = base
 
-
 ## Bucket Sort
 
       Algorithm:
@@ -182,4 +219,3 @@ function bucketSort(array, k) is
   return the concatenation of buckets[1], ...., buckets[k]
 
 ```
-
