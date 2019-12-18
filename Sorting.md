@@ -1,6 +1,23 @@
 # Sorting
 
 
+## Selection Sort
+
+```java
+    private void selectionSort(int[] nums){
+        for (int i = 0; i < nums.length; i++){
+            int minIndex = i;
+            for (int j = i + 1; j < nums.length; j++){
+                if (nums[j] < nums[minIndex]){
+                    minIndex = j;
+                }
+            }
+            swap(nums, i, minIndex);
+        }
+    }
+```
+
+
 ## Merge Sort
 
 ```java
