@@ -1,5 +1,5 @@
 
-# The Index-Hashmap-Sum max subarray paradigm
+# The Index-Hashmap-Sum-Presum max subarray paradigm P
 ## Difficulty:easy
 
 This problem usually invovles finding a maximum subarray with some type of subarray
@@ -67,8 +67,9 @@ public int getLargestSumCloseToK(int[] arr, int k){
 }
 
 
-```
 
+
+```
 
 # Leetcode 523: Check if subarray that sums up to multiple of K
 Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
@@ -101,8 +102,10 @@ Given a list of non-negative numbers and a target integer k, write a function to
 ```
 
 
-# Leetcode 525 Subarray sums up to multiple of k
-Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to a multiple of k, that is, sums up to n*k where n is also an integer.
+# Leetcode 525 Max su
+Contigious Array, Leetcode 525
+
+Given a binary array, find the maximum length of a contiguous subarray with equal number of 0 and 1.
 
 ```java
 
