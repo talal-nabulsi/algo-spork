@@ -1,4 +1,2 @@
 # Alien Dictionary
-
-
-# 
+# Course Schedule

@@ -64,10 +64,42 @@ int toggleBit(int num, int i) {
 }
 ```
 
-### Turn off Rightmost bit
+### Turn off Rightmost SET bit
 
 ```java
 
-int clearRightMostBit(int n) {
+int clearRightMostSetBit(int n) {
    return n & (n - 1);
 }
+
+```
+
+# Leetcode 476. Number Complement
+
+Find complement of number.
+Ex: 5 =101 -> 010
+
+Basically the idea is you want to get a mask of all 1s (11111)
+
+```java
+   public int findComplement(int num) {
+        return num ^ ((Integer.highestOneBit(num) << 1) - 1);
+   }
+```
+
+```java
+    public int findComplement(int num) {
+        int solution = 0;
+        int pointer = 1;
+        int lsb = 0;
+        
+        while (num != 0) {
+            lsb = num & 1;
+            if (lsb == 0) 
+                solution = setBit(solution, pointer)
+            pointer <<= 1;
+            num >>>= 1;   
+        }
+        return solution;     
+    }
+```

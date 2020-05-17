@@ -25,9 +25,9 @@ void dfs(Node v) {
     visited.add(node);
     //vist and process vertex
 
-    for (neighbors : node.getNeighbrs()) {
+    for (neighbors : node.getNeighbrs()) 
             dfs(neighbor); 
-    }
+    
 }
 ```
 
@@ -125,7 +125,6 @@ private topologicalSortUtil(int node, Stack<Integer> stack, HashSet<Integer> vis
 ```
 
 ## Topological Sort (Kahns Algorithm)
-
 
 
 # Detect Cycle in Graph
@@ -270,10 +269,13 @@ Let distance of source vertex from start = 0
 Let distance of al other vertices from start = infinity
 
 	1. Pop the next unvisited vertex from the shortest known distance from start
-	2. Add popped vertex to visited, because it's impossible to find a shorter distance
+	2. Add popped vertex to visited, because it's impossible to find a shorter distance (not necessary I think)
 	3. For current/popped vertex, calculate distnace of all the neighbors
 		a. Neighbor's distance = current vertex distanced + edge weight
-		b. If this distance < current disntace in array, update the distance (remove/add from queue, And set current vertex as            parent.
+		b. If this distance < current disntace in array, update the distance (remove/add from queue, And set current vertex as parent.
+
+> Result if dijkstras gives you shortest path to all nodes
+> Recreate any single path using the parent array
  
  
  ```java
@@ -284,11 +286,17 @@ public void dijkstras(Graph G, int source) {
 
     int[] dist = new int[G.size()];
     int[] parent = new int[G.size()];
+
+    // Set all nodes distance to inifinity, set source dist to zero
+    // Set parents to -1
     Arrays.fill(dist, Integer.MAX_VALUE);
     Arrays.fill(parent, -1);
+    dist[source] = 0;
+
     PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> dist[a]- dist[b])
+    pq.add(source);
     
-    // Visited Set not necessary, just for reference
+    // Visited Set not necessary!!, just for reference
     Set<Integer> visited = new HashSet<>();
 
     while (!pq.isEmpty() {
@@ -302,7 +310,7 @@ public void dijkstras(Graph G, int source) {
 
             if (dist < dist[target]) {
                 dist[target] = dist
-                //Remove and re-add to pq
+                //Remove and re-add to pq, cause might be in it
                 pq.remove(target);
                 pq.add(target);
                 parent[target] = curr;
@@ -311,6 +319,13 @@ public void dijkstras(Graph G, int source) {
     }  
 }
 
+// Need edge class to store both target and weight (still an adjacency list List<Edge>)
+class Edge {
+    int target;
+    int weight;
+}
+
+// Build path given target
 List<Integer> getPath(int[] parent, int target) {
     List<Integer> path = new ArrayList<>();
     while (parent[target] != -1) {

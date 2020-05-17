@@ -4,3 +4,6 @@
 # Decode ways
 # Unique Paths
 # Russian Doll Envelopes
+# Unique binary trees
+# Burst Baloon
+# Knapsack

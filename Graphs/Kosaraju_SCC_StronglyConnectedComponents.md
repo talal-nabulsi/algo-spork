@@ -42,7 +42,7 @@ public class StronglyConnectedComponent {
             if (visited.contains(vertex)) {
                 continue;
             }
-            DFSUtil(vertex, visited, stack);
+            dfsReversePostorder(vertex, visited, stack);
         }
 
         //reverse the graph.
@@ -72,7 +72,7 @@ public class StronglyConnectedComponent {
         return reverseGraph;
     }
 
-    private void DFSUtil(Vertex<Integer> vertex,
+    private void dfsReversePostorder(Vertex<Integer> vertex,
             Set<Vertex<Integer>> visited, Deque<Vertex<Integer>> stack) {
         visited.add(vertex);
         for (Vertex<Integer> v : vertex.getAdjacentVertexes()) {

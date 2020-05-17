@@ -3,7 +3,7 @@
 Easy, just don't forget it!
 
 ```java
-    public int binarySearch(int k, int[] array) {
+    public int binarySearch(int target, int[] array) {
         int low = 0;
         int high = array.length - 1;
         int res = -1;
@@ -12,10 +12,10 @@ Easy, just don't forget it!
         while (low <= high) {
             int mid = (high - low)/2 + low;
             
-            if (k < nums[mid]) {
+            if (target < nums[mid]) {
                 high = mid - 1; // remember the +/-
-            } else if (k > nums[mid]k) {
-                low = mid + 1; // remember the +/-
+            } else if (target > nums[mid]k) {
+                low = mid + 1; 
             } else {
                 // found it
                 return mid;

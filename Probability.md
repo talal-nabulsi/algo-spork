@@ -1,7 +1,22 @@
 
 
-# LEETCODE 498 Diagonal Traverse
+# Helper Tip
 
+> Generate random number within range
+
+```java
+    Random rand = new Random();
+
+    private int randRange(int min, int max) {
+        return rand.nextInt(max - min) + min;
+    }
+```
+
+
+
+# Leetcode Rand 10 from Rand 7
+
+> Technique: Rejection Sampling
 
  ```java
 /**
@@ -10,12 +25,10 @@
  * @return a random integer in the range 1 to 7
  */
 ˚
-```java
 // Rejection sampling
 // Use two rand7s to get an index 1 to 49
 // Reject all greater than 40
 // Convert 40 to number between 1 to 10
-class Solution extends SolBase {
     public int rand10() {
         int row, col, idx;
         do {
@@ -25,5 +38,19 @@ class Solution extends SolBase {
         } while (idx > 40);
         return 1 + (idx - 1) % 10;
     }
-}
+
 ```
+
+
+# Shuffle an Array (Fisher Yates Algorithm)
+
+```java
+    public int[] shuffle() {
+        for (int i = 0; i < array.length; i++) 
+            swap(i, randRange(i, array.length));
+        
+        return array;
+    }
+```
+
+# Reservoir Sampling
