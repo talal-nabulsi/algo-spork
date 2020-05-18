@@ -5,3 +5,13 @@
 >IsSplitPossible => Given an array of positive integers, is it possible to split the array in two parts such that the sum of parts is equal. This is a very easy problem using prefix Sum
 
 >Implement readline method using Read4k() => Not too challenging. I thought I solved it well but interviewer thought I missed a case.
+
+>https://leetcode.com/problems/kth-largest-element-in-an-array/ - Completed with O(nlogk)
+
+
+>https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/ 
+
+
+>https://leetcode.com/problems/simplify-path/
+
+>https://leetcode.com/problems/validate-binary-search-tree/ -

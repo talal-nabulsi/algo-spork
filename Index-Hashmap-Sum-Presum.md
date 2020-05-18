@@ -66,9 +66,6 @@ public int getLargestSumCloseToK(int[] arr, int k){
     return result;
 }
 
-
-
-
 ```
 
 # Leetcode 523: Check if subarray that sums up to multiple of K
