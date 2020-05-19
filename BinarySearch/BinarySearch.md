@@ -27,6 +27,7 @@ Easy, just don't forget it!
 ```
 
 
+
 > Classic Example of the keep going left if you find an answer method
 
 ```java
@@ -49,3 +50,11 @@ Easy, just don't forget it!
     }
 
 ```
+
+# Some tips
+
+Personally I perfer `(low <= high)` and `high = mid - 1`  and `low = mid + 1` 
+For this to work you must always check if mid is the answer every loop. So you make sure you can elimate mid before moving on. Exiting the while loop means we didn't find an answer.
+
+Sometimes people use `low < high` or `low + 1 < high`. This is useful when you want to exit the loop with one or two elements left. I've never personally had to use this case because I prefer to terminate in the middle.
+
