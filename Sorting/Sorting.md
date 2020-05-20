@@ -45,11 +45,10 @@ void merge(int[] L,  int[] R, int[] nums) {
     int i = j = k = 0;
 
     while (i < L.length && j < R.length) {
-        if (L[i] < R[j]) {
+        if (L[i] < R[j]) 
             nums[k++] = L[i++];
-        } else {
+        else 
             nums[k++] = R[j++];
-        }
     }
 
     while (i < L.length) nums[k++] = L[i++];
@@ -139,7 +138,14 @@ void swap(int a, int b, int[] nums) {
       Used to sort numbers within a specific range
       Runtime: O(n + k)
 
+    This uses the running sum method. If you have just integers then you DONT need running sum.
+
+**Stackoverflow quote** on running sum method
+> Where you're purely sorting numbers - there's no reason why you need to convert the histogram into a cumulative histogram. Since numbers are just numbers, you can sort the array not by rearranging the initial values into sorted order, but just by generating a new list of numbers based on a frequency histogram.
+
+
 ### Counting Sort for chars
+
 
 ```java
 
@@ -157,10 +163,11 @@ void swap(int a, int b, int[] nums) {
   
         // store count of each character 
         for (int i=0; i<n; ++i) 
-            ++count[arr[i]]; 
+            count[arr[i]]++; 
   
         // Change count[i] so that count[i] now contains actual 
         // position of this character in output array 
+        // count[i] represents numbers LESS THAN OR EQUAL to that number
         for (int i=1; i<=255; ++i) 
             count[i] += count[i-1]; 
   
@@ -193,14 +200,20 @@ static void countSort(int[] arr)  {
         for (int i = 0; i < arr.length; i++) 
             count[arr[i] - min]++; 
   
+        // Pretty intiuitive, get a running sum
         for (int i = 1; i < count.length; i++)  
             count[i] += count[i - 1]; 
      
+        // rumnningSum[i] gets you the position of that item.
+        // GO through array and decrement count each time
         for (int i = arr.length - 1; i >= 0; i--)  { 
             output[count[arr[i] - min] - 1] = arr[i]; 
             count[arr[i] - min]--; 
         } 
   
+        // Build the output character array 
+        // Iterate BACKWARDS on original array, updating position-- in count each time 
+        // To make it stable we are operating in reverse order
         for (int i = 0; i < arr.length; i++) 
             arr[i] = output[i];   
     } 

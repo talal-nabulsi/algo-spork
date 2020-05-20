@@ -2,12 +2,9 @@
 
 # Minimum in Rotated Sorted Array
 
-
-
 ## Both solutions are good, almost identical, first one is my solution I came up with after hours, but I think it's easy to remember
 
 Annoying problem but has helped me fully understand binary search and the variations
-
 
 ```java
 
@@ -31,7 +28,7 @@ Annoying problem but has helped me fully understand binary search and the variat
         
             if (nums[mid] > nums[high]) // right unsorted, def not mid
                 low = mid + 1;
-            else if (nums[low] > nums[mid]) // left unsorted, 
+            else if (nums[low] > nums[mid]) // left unsorted
                 high = mid - 1;
             else return nums[low]; // Both parts of array are sorted (or its size 1), nums[low] is answer (DONT FORGET THIS CASE)  
         }
@@ -40,9 +37,6 @@ Annoying problem but has helped me fully understand binary search and the variat
     }
 
 ```
-
-
-
 
 # shorter solution, not as clear, but gives some insight
 
@@ -76,3 +70,11 @@ Annoying problem but has helped me fully understand binary search and the variat
 
 
 
+# Some tips
+
+Personally I perfer `(low <= high)` and `high = mid - 1`  and `low = mid + 1` 
+For this to work you must always check if mid is the answer every loop. So you make sure you can elimate mid before moving on. Exiting the while loop means we didn't find an answer because left > right and all answers are invalid.
+
+Sometimes people use `low < high` or `low + 1 < high`. This is useful when you want to exit the loop with one or two elements left. I've never personally had to use this case because I prefer to terminate in the middle.
+
+They also use `high = mid` instead of `high = mid + 1`. This only needs to done if for some reason you cant elimate mid as an answer. Again, I've never had a case where I had to do this.

@@ -38,7 +38,7 @@
     //For the last two you just gotta make sure you don't duplicate the same row or column
     //The first two don't need that check because its already in the while loop
     // You could also use directions so it enters the while loop condition every travseral
-   public List<Integer> spiralOrder2(int[][] matrix) {
+   public List<Integer> spiralOrder(int[][] matrix) {
         
         List<Integer> res = new ArrayList<Integer>();
         
