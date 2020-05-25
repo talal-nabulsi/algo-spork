@@ -28,11 +28,11 @@ Key Steps to remember:
             sum += nums[i];
             
             // Can also do map.put(0, -1)
-            if (sum == k) {
+            if (sum == k) 
                max = i + 1;
-            } else if (preSum.containsKey(sum - k)) {
+            else if (preSum.containsKey(sum - k)) {
                max = Math.max(max, i - preSum.get(sum - k));
-            }
+            
                 
             preSum.putIfAbsent(sum, i);  
         }

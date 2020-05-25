@@ -15,3 +15,18 @@
 >https://leetcode.com/problems/simplify-path/
 
 >https://leetcode.com/problems/validate-binary-search-tree/ -
+
+
+https://leetcode.com/problems/course-schedule/
+
+https://leetcode.com/problems/verifying-an-alien-dictionary/ 
+
+Given an integer array and a target number, find whether there exists a contiguous subarray with sum equal to target
+
+
+Max Dot Product of Two Subsequences
+
+
+https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/
+
+581. Shortest Unsorted Continuous Subarray
