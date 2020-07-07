@@ -40,3 +40,32 @@
             return curr; 
     }
 ```
+
+
+# Varation: Inorder/Postorder
+
+```java
+     public TreeNode buildTree(int[] inorder, int[] postorder) {
+        return build( 0, inorder.length - 1, inorder, 0, postorder.length - 1, postorder );
+    }
+    
+    private TreeNode build( int inStart, int inEnd, int[] inorder, int postStart, int postEnd, int[] postorder ) {
+        if ( inStart > inEnd || postStart > postEnd )   return null;
+        
+        int rootVal = postorder[postEnd];
+        TreeNode root = new TreeNode(rootVal);
+        // search root in in-order
+        int inRootIndex = 0;
+        for ( int i = 0; i < inorder.length; i++ ) {
+            if ( inorder[i] == rootVal ) {
+                inRootIndex = i;
+                break;
+            }
+        }
+
+        int leftLen = inRootIndex - inStart;
+        root.left = build( inStart, inRootIndex - 1, inorder, postStart, postStart + leftLen - 1, postorder );
+        root.right = build( inRootIndex + 1, inEnd, inorder, postStart + leftLen, postEnd - 1, postorder );
+        return root;
+    }
+```

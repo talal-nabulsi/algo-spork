@@ -54,6 +54,17 @@ Explanation: Imagine you have coins 2 and 5 and amount is 7
 
 // When amount is 5 and the coin value is 2, the number of ways become 2.
 
+// 
+
+> DP[i][amount] = num ways without + num ways with
+
+> DP[i][amount] = dp[i - 1][amount] + dp[i][amount - coin]
+
+> Dp[i][amount] = top cell + cell in SAME row at colunm [amount - coin]
+
+> IMPORTANT: you can use 1D DP in the forwards direction because you NEED only the cell directly above and the  value from the SAME row calculate the answer (so you aren't at risk of overwriting values you need in the future)
+
+> This is different from subset sum, where you have to go backwards since you need elements from previus row and don't want to overwrite them!
 
 ```java
     
@@ -63,7 +74,8 @@ Explanation: Imagine you have coins 2 and 5 and amount is 7
     // You should definitely memorize this one, its a good trick
     // Because we can reuse items we don't have to go to previous row, and we can do it 1D
     
-        // Identical to Combination Sum IV excpet for the fact this one doesn't allow combinations of the same sequence
+    // Similar to Combination Sum IV excpet for the fact this one doesn't allow combinations of the same sequence
+
     
     public int change(int amount, int[] coins) {
         int[] dp = new int[amount + 1];

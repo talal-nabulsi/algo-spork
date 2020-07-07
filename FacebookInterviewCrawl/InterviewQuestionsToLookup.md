@@ -14,19 +14,25 @@
 
 >https://leetcode.com/problems/simplify-path/
 
->https://leetcode.com/problems/validate-binary-search-tree/ -
+>https://leetcode.com/problems/validate-binary-search-tree/ 
 
 
-https://leetcode.com/problems/course-schedule/
+https://leetcode.com/problems/reconstruct-itinerary/
 
-https://leetcode.com/problems/verifying-an-alien-dictionary/ 
+>Longest Non-Decreasing Subsequence
+
+>dot product of two arrays
 
 Given an integer array and a target number, find whether there exists a contiguous subarray with sum equal to target
 
+>Interval Scheduling Maximization
+>K Largest Elements In An Immutable Max-Heap
+>Flatten A Multilevel Doubly Linked List
+>Swap Linked List Nodes In Pairs
+>Intersection of 2 Sorted Arrays
 
-Max Dot Product of Two Subsequences
 
-
-https://leetcode.com/problems/lowest-common-ancestor-of-deepest-leaves/
-
-581. Shortest Unsorted Continuous Subarray
+>Compute A Node's Inorder Successor
+>Build A Min-Height BST From A Sorted Array
+>Compute Buildings With A Sunset View
+>Implement Text Editor Undo Redo
