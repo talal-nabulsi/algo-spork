@@ -9,3 +9,19 @@
         return array;
     }
 ```
+
+# Bitwise Swap trick
+
+```cplusplus
+    *x = *x ^ *y;
+    *y = *x ^ *y;
+    *x = *x ^ *y;
+```
+
+```java
+   public void swap2(char[] s, int a, int b) {
+        s[a] ^= s[b];
+        s[b] ^= s[a];
+        s[a] ^= s[b];
+    }
+```
